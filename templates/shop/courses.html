@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} All Courses {% endblock %}
+{% block content %}
+
+<!--create table automatically using emmet table>thead>tr>th*5-->
+    <table class="table mt-5 table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Students Qty</th>
+                <th>Reviews Qty</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td> 
+                    <a href={% url "shop:single_course" course.id %}> {{ course.title }} </a>
+                </td>
+                <td>{{ course.price }}</td>
+                <td>{{ course.category }}</td>
+                <td>{{ course.students_qty }}</td>
+                <td>{{ course.reviews_qty }}</td>
+                <td><button class="btn btn-primary">Buy</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

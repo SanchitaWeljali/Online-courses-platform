@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %} {{ course.title }} {% endblock %}
+{% block content %}
+<style>
+    body {
+         /* Light blue background color for the page */
+    }
+    .card {
+        background-size: cover;
+        background-position: center;
+    }
+    .card-overlay {
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay for readability */
+        padding: 20px;
+        border-radius: 5px;
+    }
+    .card-title {
+        margin-top: 20px;
+    }
+</style>
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg rounded">
+        <div class="card-body card-overlay">
+            <h1 class="card-title text-center">{{ course.title }}</h1>
+            <hr>
+            <table class="table table-bordered mt-4" style="font-family: 'Arial', sans-serif;">
+                <tbody>
+                    <tr>
+                        <td><strong>Category</strong></td>
+                        <td>{{ course.category }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Price</strong></td>
+                        <td>{{ course.price }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Students Qty</strong></td>
+                        <td>{{ course.students_qty }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reviews Qty</strong></td>
+                        <td>{{ course.reviews_qty }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary">Buy</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
